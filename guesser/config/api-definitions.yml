@@ -1,0 +1,78 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Guesser server."
+  version: "1.0.0"
+  title: "Guesser"
+  termsOfService: "http://guesser.io/terms/"
+  contact:
+    email: "apiteam@guesser.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "io.pivotal.micro-samples"
+basePath: "/v2"
+tags:
+- name: "guess"
+  description: "All good guesses count"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /guess:
+    get:
+      tags:
+      - "guess"
+      summary: "Health point"
+      description: "All generated responses returned."
+      operationId: "health"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: string
+        400:
+          description: "Invalid status value"
+  /guess/allGuesses:
+    get:
+      tags:
+      - "guess"
+      summary: "Finds All Guesses"
+      description: "All generated responses returned."
+      operationId: "allGuesses"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Guess"
+        400:
+          description: "Invalid status value"
+definitions:
+  Guess:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      guessedPhrase:
+        type: "string"
+      responsePhrase:
+        type: "string"
+      guessDate:
+        type: "string"
+        format: "date-time"
+      guessed:
+        type: "boolean"
+        default: false
+    xml:
+      name: "Guess"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

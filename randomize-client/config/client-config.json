@@ -1,0 +1,14 @@
+{
+  "java8" : true,
+  "library" : "feign",
+  "invokerPackage" : "io.pivotal.microsamples.randomizer",
+  "groupId" : "io.pivotal.micro-samples",
+  "artifactId" : "randomizer-client",
+  "artifactDescription" : "Front end service.",
+  "title" : "Randomizer Client",
+  "basePackage" : "io.pivotal.microsamples",
+  "modelPackage" : "io.pivotal.microsamples.model",
+  "apiPackage" : "io.pivotal.microsamples.api",
+  "configPackage" : "io.pivotal.microsamples.config",
+  "serializableModel" : true
+}

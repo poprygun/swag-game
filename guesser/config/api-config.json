@@ -1,0 +1,13 @@
+{
+  "java8" : true,
+  "library" : "spring-boot",
+  "invokerPackage" : "guesser-web",
+  "groupId" : "io.pivotal.micro-samples",
+  "artifactId" : "guesser-web",
+  "artifactDescription" : "Front end service.",
+  "title" : "Guesser",
+  "basePackage" : "io.pivotal.microsamples",
+  "modelPackage" : "io.pivotal.microsamples.model",
+  "apiPackage" : "io.pivotal.microsamples.api",
+  "configPackage" : "io.pivotal.microsamples.config"
+}
