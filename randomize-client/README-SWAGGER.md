@@ -1,6 +1,7 @@
 swagger-codegen generate \
   -i config/api-definitions.yml \
-  -l java \
+  -l spring \
+  --library spring-cloud \
   -o . \
   -c config/client-config.json
 

@@ -1,11 +1,11 @@
 {
   "java8" : true,
-  "library" : "feign",
+  "library" : "spring-cloud",
   "invokerPackage" : "io.pivotal.microsamples.randomizer",
   "groupId" : "io.pivotal.micro-samples",
   "artifactId" : "randomizer-client",
   "artifactDescription" : "Front end service.",
-  "title" : "Randomizer Client",
+  "title" : "randomizer-client",
   "basePackage" : "io.pivotal.microsamples",
   "modelPackage" : "io.pivotal.microsamples.model",
   "apiPackage" : "io.pivotal.microsamples.api",

@@ -12,6 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableDiscoveryClient
 @SpringBootApplication
+@EnableFeignClients
 @EnableSwagger2
 @ComponentScan(basePackages = "io.pivotal.microsamples")
 public class Swagger2SpringBoot implements CommandLineRunner {

@@ -4,7 +4,7 @@
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
 
-## Installation & Usage
+## Installation
 
 To install the API client library to your local Maven repository, simply execute:
 
@@ -20,7 +20,9 @@ mvn deploy
 
 Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
 
-After the client library is installed/deployed, you can use it in your Maven project by adding the following to your *pom.xml*:
+### Maven users
+
+Add this dependency to your project's POM:
 
 ```xml
 <dependency>
@@ -29,15 +31,23 @@ After the client library is installed/deployed, you can use it in your Maven pro
     <version>1.0.0</version>
     <scope>compile</scope>
 </dependency>
-
 ```
 
-## Recommendation
+### Gradle users
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
+Add this dependency to your project's build file:
 
-## Author
+```groovy
+compile "io.pivotal.micro-samples:randomizer-client:1.0.0"
+```
 
-apiteam@guesser.io
+### Others
 
+At first generate the JAR by executing:
 
+mvn package
+
+Then manually install the following JARs:
+
+* target/randomizer-client-1.0.0.jar
+* target/lib/*.jar

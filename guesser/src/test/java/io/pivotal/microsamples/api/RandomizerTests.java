@@ -1,10 +1,11 @@
 package io.pivotal.microsamples.api;
 
 import io.pivotal.microsamples.model.Health;
-import io.pivotal.microsamples.randomizer.ApiClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertNotNull;
@@ -13,11 +14,13 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(SpringRunner.class)
 public class RandomizerTests {
 
+    @Autowired
+    private RandomizeApiClient randomizeApiClient;
 
     @Test
     public void shouldReturnRandomizedData() {
-        RandomizeApi randomizeApi1 = new ApiClient().buildClient(RandomizeApi.class);
-        Health health = randomizeApi1.health();
-        assertNotNull(health.getHealth());
+        ResponseEntity<Health> health = randomizeApiClient.health();
+        Health body = health.getBody();
+        assertNotNull(body);
     }
 }

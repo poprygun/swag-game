@@ -1,28 +1,37 @@
 package io.pivotal.microsamples.api;
 
-import io.pivotal.microsamples.randomizer.ApiClient;
-
 import io.pivotal.microsamples.model.Guess;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import io.swagger.annotations.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
-import java.util.Map;
-import feign.*;
+import javax.validation.constraints.*;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-04-28T14:48:07.759-04:00")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-28T10:28:36.889-04:00")
-public interface GuessApi extends ApiClient.Api {
+@Api(value = "Guess", description = "the Guess API")
+public interface GuessApi {
 
+    @ApiOperation(value = "Finds All Guesses", notes = "All generated responses returned.", response = Guess.class, responseContainer = "List", tags={ "guess", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "successful operation", response = Guess.class),
+        @ApiResponse(code = 400, message = "Invalid status value", response = Guess.class) })
+    @RequestMapping(value = "/randomize/allPhrases",
+        produces = "application/json",
+        consumes = "application/json",
+        method = RequestMethod.GET)
+    default ResponseEntity<List<Guess>> allGuesses() {
+        // do some magic!
+        return new ResponseEntity<List<Guess>>(HttpStatus.OK);
+    }
 
-  /**
-   * Finds All Guesses
-   * All generated responses returned.
-   * @return List&lt;Guess&gt;
-   */
-  @RequestLine("GET /randomize/allPhrases")
-  @Headers({
-    "Content-Type: application/json",
-    "Accept: application/json",
-  })
-  List<Guess> allGuesses();
 }
