@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-04-28T14:48:07.759-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-04-28T17:46:21.842-04:00")
 
 @Api(value = "Randomize", description = "the Randomize API")
 public interface RandomizeApi {
@@ -27,11 +27,14 @@ public interface RandomizeApi {
         @ApiResponse(code = 400, message = "Invalid status value", response = Health.class) })
     @RequestMapping(value = "/randomize",
         produces = "application/json",
-        consumes = "application/json",
+//        consumes = "application/json", todo does not work
         method = RequestMethod.GET)
-    default ResponseEntity<Health> health() {
-        // do some magic!
-        return new ResponseEntity<Health>(HttpStatus.OK);
-    }
+    ResponseEntity<Health> health();
+
+//    todo below was generated with swagger and does not work since we do work in controller
+    //    default ResponseEntity<Health> health() {
+//        // do some magic!
+//        return new ResponseEntity<Health>(HttpStatus.OK);
+//    }
 
 }

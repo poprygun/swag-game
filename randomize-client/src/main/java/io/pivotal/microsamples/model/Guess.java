@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 /**
  * Guess
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-04-28T14:48:07.759-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-04-28T17:46:21.842-04:00")
 
 public class Guess  implements Serializable {
   @JsonProperty("id")
