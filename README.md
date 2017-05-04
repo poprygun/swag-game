@@ -128,6 +128,14 @@ public class GuessApiImpl implements GuessApi {
 }
 ```
 
+Start services
+
+From `service-discovery`, `randomize`, `guesser` directories:
+
+```bash
+mvn spring-boot:run
+```
+
 ## Components
 
 See README files under specific module for detailed description of component functionality.

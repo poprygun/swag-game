@@ -21,16 +21,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 public class Guesser implements CommandLineRunner {
 
-	@Autowired
-	private DiscoveryClient discoveryClient;
-
 	@Override
 	public void run(String... arg0) throws Exception {
 
-		System.out.println("==============");
-		discoveryClient.getInstances("randomizer").forEach((ServiceInstance s) -> {
-			System.out.println(s.getServiceId());
-		});
 		if (arg0.length > 0 && arg0[0].equals("exitcode")) {
 			throw new ExitException();
 		}
