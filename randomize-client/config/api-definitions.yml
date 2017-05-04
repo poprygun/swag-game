@@ -1,11 +1,11 @@
 swagger: "2.0"
 info:
-  description: "This is a sample server Guesser server."
+  description: "This is a sample server Randomizer server."
   version: "1.0.0"
   title: "Randomizer"
-  termsOfService: "http://guesser.io/terms/"
+  termsOfService: "http://randomizer.io/terms/"
   contact:
-    email: "apiteam@guesser.io"
+    email: "apiteam@randomizer.io"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -27,6 +27,8 @@ paths:
       summary: "Health point"
       description: "All generated responses returned."
       operationId: "health"
+      consumes:
+      - "*/*"
       produces:
       - "application/json"
       responses:
@@ -39,10 +41,12 @@ paths:
   /randomize/allPhrases:
     get:
       tags:
-      - "guess"
-      summary: "Finds All Guesses"
+      - "phrase"
+      summary: "Finds All Phrases"
       description: "All generated responses returned."
-      operationId: "allGuesses"
+      operationId: "allPhrases"
+      consumes:
+      - "*/*"
       produces:
       - "application/json"
       responses:
@@ -51,7 +55,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Guess"
+              $ref: "#/definitions/Phrase"
         400:
           description: "Invalid status value"
 definitions:
@@ -62,7 +66,7 @@ definitions:
         type: "string"
     xml:
       name: "Health"
-  Guess:
+  Phrase:
     type: "object"
     properties:
       id:
@@ -79,7 +83,7 @@ definitions:
         type: "boolean"
         default: false
     xml:
-      name: "Guess"
+      name: "Phrase"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"

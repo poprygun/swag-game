@@ -9,7 +9,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "io.pivotal.micro-samples"
+host: "localhost:8082"
 basePath: "/v2"
 tags:
 - name: "guess"
@@ -27,13 +27,15 @@ paths:
       summary: "Health point"
       description: "All generated responses returned."
       operationId: "health"
+      consumes:
+      - "*/*"
       produces:
       - "application/json"
       responses:
         200:
           description: "successful operation"
           schema:
-            type: string
+            $ref: "#/definitions/Health"
         400:
           description: "Invalid status value"
   /guess/allGuesses:
@@ -43,6 +45,8 @@ paths:
       summary: "Finds All Guesses"
       description: "All generated responses returned."
       operationId: "allGuesses"
+      consumes:
+      - "*/*"
       produces:
       - "application/json"
       responses:
@@ -55,6 +59,13 @@ paths:
         400:
           description: "Invalid status value"
 definitions:
+  Health:
+    type: "object"
+    properties:
+      health:
+        type: "string"
+    xml:
+      name: "Health"
   Guess:
     type: "object"
     properties:
